@@ -17,6 +17,13 @@
             </a>
         </li><!-- End Register Page Nav -->
 
+        <li class="nav-item">
+            <a class="nav-link {{ $title === 'Kategori' ? '' : 'collapsed' }}" href="/kategori">
+                <i class="bi bi-card-list"></i>
+                <span>Kategori (Admin)</span>
+            </a>
+        </li><!-- End Register Page Nav -->
+
     </ul>
 
 </aside><!-- End Sidebar-->

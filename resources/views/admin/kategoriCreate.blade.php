@@ -48,14 +48,17 @@
                     <div class="row mb-3">
                         <label for="inputNumber" class="col-sm-2 col-form-label">Image Upload</label>
                         <div class="col-sm-10">
-                            <input class="form-control @error('src') is-invalid @enderror" type="file"
-                                accept="image/jpg, image/jpeg" id="src" name="src" onchange="previewImg(this);"
-                                required value=" {{ old('scr') }}"></br>
-                            <div id="preview"></div>
-                            @error('src')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                            <label for="inputNumber" class="col-sm-2 col-form-label">Image Upload</label>
+                            <div class="col-sm-10">
+                                <input class="form-control @error('formFile') is-invalid @enderror" type="file"
+                                    accept="image/jpg, image/jpeg" id="src" name="src"
+                                    onchange="previewImg(this);" required value=" {{ old('scr') }}"></br>
+                                <div id="preview"></div>
+                                @error('src')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             @enderror
                         </div>
                     </div>
@@ -63,8 +66,8 @@
                     <div class="row mb-3">
                         <label for="inputNumber" class="col-sm-2 col-form-label">Harga per Kilogram</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control @error('price') is-invalid @enderror" name="price"
-                                required value="{{ old('price') }}">
+                            <input type="number" class="form-control @error('price') is-invalid @enderror"
+                                name="price" required value="{{ old('price') }}">
                             @error('price')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -81,9 +84,9 @@
                         </div>
                     </div>
 
-                </form><!-- End General Form Elements -->
-            </div><!-- End Left side columns -->
+            </form><!-- End General Form Elements -->
+        </div><!-- End Left side columns -->
 
-        </div>
-    </section>
+    </div>
+</section>
 @endsection

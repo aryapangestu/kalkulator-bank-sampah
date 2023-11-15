@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateCategoryRequest;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -69,9 +71,22 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'price' => 'required|max:255',
+        ]);
+
+        if ($request->file('src')) {
+            $validated['src'] = $request->file('src')->store('place-img');
+            $locImg = "storage/" . Category::find($id)->src;
+            File::delete($locImg);
+        }
+
+        Category::where('id', $id)->update($validated);
+        return redirect('/kategori')->with('alert', 'Kategori updated successfully!');
     }
 
     /**

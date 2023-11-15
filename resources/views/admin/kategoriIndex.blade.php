@@ -31,8 +31,7 @@
                                         <div
                                             class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                             <img class="place_list_thumb" src="{{ asset('storage/' . $category->src) }}"
-                                                style="width: 70px; height:70px">
-                                            {{-- <i class="bi bi-cart"></i> --}}
+                                                style="width: 50px; height:50px">
                                         </div>
                                         <div class="ps-3">
                                             <span class="text-success small pt-1 fw-bold">{{ $category->price }}</span>
