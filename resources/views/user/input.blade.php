@@ -17,7 +17,7 @@
         </div>
     @endif
     <section class="section dashboard">
-        <form method="POST" action="/pages-input">
+        <form method="POST" action="/input">
             @csrf
             <div class="row">
 
